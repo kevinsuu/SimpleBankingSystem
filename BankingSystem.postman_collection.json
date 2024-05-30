@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "09b7eb0d-0695-4a22-b91d-8681e89b00a4",
+		"name": "BankingSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32455906"
+	},
+	"item": [
+		{
+			"name": "/api/accounts",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"name\": \"CCAA\", \"balance\": 100 }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/api/accounts",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"accounts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/accounts/:id/deposit",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"amount\":50\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/api/accounts/e59d3461-b8a6-4610-8199-a533e87fdc7c/deposit",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"accounts",
+						"e59d3461-b8a6-4610-8199-a533e87fdc7c",
+						"deposit"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/accounts/:id/withdraw",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \"amount\": 100 }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/api/accounts/bd8f267e-d1a3-409c-afa1-91efd0372430/withdraw",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"accounts",
+						"bd8f267e-d1a3-409c-afa1-91efd0372430",
+						"withdraw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/accounts/transfer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoia2V2aW4iLCJpYXQiOjE3MTU5NTA5MDYsImV4cCI6MTcxNTk1NDUwNn0.L9MgpMsc5Sy6Ij26jskq3dWq-_8DvxLzVCDb6i1FmO4"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"senderId\": \"d2722bbd-ad7f-4188-9558-3f39602b0142\",\n    \"recipientId\": \"f3bc1111-10ba-489e-8126-6d69554dab1c\",\n    \"amount\": 50 \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/api/accounts/transfer",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"accounts",
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/transactions",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoia2V2aW4iLCJpYXQiOjE3MTU5NTA5MDYsImV4cCI6MTcxNTk1NDUwNn0.L9MgpMsc5Sy6Ij26jskq3dWq-_8DvxLzVCDb6i1FmO4"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{localhost}}/api/transactions",
+					"host": [
+						"{{localhost}}"
+					],
+					"path": [
+						"api",
+						"transactions"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "localhost",
+			"value": "localhost:5001",
+			"type": "string"
+		}
+	]
+}

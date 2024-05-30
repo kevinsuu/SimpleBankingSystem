@@ -1,0 +1,8 @@
+version: "3"
+services:
+  banking-system:
+    container_name: banking-system
+    restart: always
+    build: .
+    ports:
+      - "5001:5001"
